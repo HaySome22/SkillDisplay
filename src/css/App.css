@@ -23,7 +23,7 @@ html {
 
 .actions {
   padding-top: 1rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) calc(25% - 1px),
     rgba(255, 255, 255, 0.5) calc(25%),
@@ -34,10 +34,10 @@ html {
     rgba(0, 0, 0, 0) calc(75% - 1px),
     rgba(255, 255, 255, 0.5) calc(75%),
     rgba(0, 0, 0, 0) calc(75% + 1px)
-  );
+  ); */
   height: 3rem;
   padding-bottom: 1rem;
-  background-color: rgba(20, 20, 20, 0.3);
+  /* background-color: rgba(20, 20, 20, 0.3); */
   display: inline-block;
   position: relative;
 }

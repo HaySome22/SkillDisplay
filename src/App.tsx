@@ -224,7 +224,7 @@ export default function App() {
           />
         ))}
       </div>
-
+      <div style={{ display: 'none' }}>
       {encounterList.map((encounter, i) => (
         <RotationContainer
           key={i}
@@ -233,6 +233,7 @@ export default function App() {
           actionList={encounter.actionList}
         />
       ))}
+      </div>
     </div>
   )
 }
