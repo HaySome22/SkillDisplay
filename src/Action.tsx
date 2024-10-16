@@ -59,8 +59,8 @@ const ogcdOverrides = new Set([
 const actionOverrides = new Map<
   number,
   {
-    ActionCategoryTargetID: number
-    Icon: string
+    ActionCategory: any
+    Icon: any
     Name: string
   }
 >([
