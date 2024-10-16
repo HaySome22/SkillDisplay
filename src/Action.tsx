@@ -80,8 +80,8 @@ const actionOverrides = new Map<
 const actionMap = new Map()
 
 type APIData = {
-  ActionCategoryTargetID: number
-  Icon: string
+  ActionCategory: any
+  Icon: any
   Name: string
 }
 
@@ -112,12 +112,14 @@ export default function Action({
       const itemId = getItemId(ability)
       const url =
         itemId == null
-          ? `https://xivapi.com/Action/${actionId}?columns=Icon,Name,ActionCategoryTargetID`
-          : `https://xivapi.com/Item/${itemId}?columns=Name,Icon,IconHD,IconID`
+          // ? `https://xivapi.com/Action/${actionId}?columns=Icon,Name,ActionCategoryTargetID`
+          ? `https://beta.xivapi.com/api/1/sheet/Action/${actionId}?fields=Icon,Name,ActionCategory`
+          // : `https://xivapi.com/Item/${itemId}?columns=Name,Icon,IconHD,IconID`
+          : `https://beta.xivapi.com/api/1/sheet/Item/${itemId}?fields=Icon,Name`
 
       const localData = actionOverrides.get(actionId)
       const data =
-        localData || (await (await fetch(url, { mode: "cors" })).json())
+        localData || (await (await fetch(url, { mode: "cors" })).json()).fields
 
       if (current) {
         actionMap.set(actionId, data)
@@ -138,7 +140,7 @@ export default function Action({
   const isGCD =
     !isItem &&
     (gcdOverrides.has(actionId) ||
-      (!ogcdOverrides.has(actionId) && apiData.ActionCategoryTargetID !== 4))
+      (!ogcdOverrides.has(actionId) && apiData.ActionCategory.value !== 4))
 
   return (
     <img
@@ -146,7 +148,8 @@ export default function Action({
         isGCD ? `gcd ${additionalClasses}` : `ogcd ${additionalClasses}`
       }
       style={casting ? { opacity: 0.5 } : undefined}
-      src={`https://xivapi.com/${apiData.Icon}`}
+      // src={`https://xivapi.com/${apiData.Icon}`}
+      src={`https://beta.xivapi.com/api/1/asset/${apiData.Icon.path}?format=png`}
       alt={apiData.Name || ""}
     />
   )
