@@ -70,8 +70,8 @@ const actionOverrides = new Map<
   [
     ACTION_IDS.Sprint,
     {
-      ActionCategoryTargetID: 10,
-      Icon: "/i/000000/000104.png",
+      ActionCategory: { value: 10 },
+      Icon: { path: "ui/icon/000000/000104.tex" },
       Name: "Sprint",
     },
   ],
