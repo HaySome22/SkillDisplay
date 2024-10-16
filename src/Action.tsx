@@ -71,7 +71,7 @@ const actionOverrides = new Map<
     ACTION_IDS.Sprint,
     {
       ActionCategory: { value: 10 },
-      Icon: { path: "ui/icon/000000/000104.tex" },
+      Icon: { path: "ui/icon/000000/000104.tex", path_hr1: "ui/icon/000000/000104_hr1.tex" },
       Name: "Sprint",
     },
   ],
@@ -149,7 +149,7 @@ export default function Action({
       }
       style={casting ? { opacity: 0.5 } : undefined}
       // src={`https://xivapi.com/${apiData.Icon}`}
-      src={`https://beta.xivapi.com/api/1/asset/${apiData.Icon.path}?format=png`}
+      src={`https://beta.xivapi.com/api/1/asset/${apiData.Icon.path_hr1}?format=png`}
       alt={apiData.Name || ""}
     />
   )
